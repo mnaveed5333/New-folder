@@ -1,0 +1,9 @@
+.main{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  font-family: monospace;
+  flex-direction: column;
+}
