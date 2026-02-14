@@ -1,51 +1,52 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from 'react'
 
 const App = () => {
-  let dm = {
-    color  : "white",
-    backgroundColor : "black"
+  const rm={
+    backgroundColor:'red',
+    color:'white',
+    height:'100vh'
   }
-  let lm = {
-    color : "black",
-    backgroundColor : "white"
+  const bm={
+    backgroundColor:'blue',
+    color:'white',
+    height:'100vh'
   }
-  let [num , setNum] = useState(0)
-  let [theme , setTheme ] = useState(lm)
-  const [message , setMessage] = useState("")
-  const inc = () =>{
-    setNum(num+1)
+  const gm={
+    backgroundColor:'green',
+    color:'white',
+    height:'100vh'
   }
-    const dec  = () =>{
-    if(num>0){
-      setNum(num-1)
+  const wm={
+    backgroundColor:'white',
+    color:'black',
+    height:'100vh'
+  }
+  const [modem,setMode]=useState(rm)
+  const mode=(e)=>{
+    if(e.target.innerText==='Red'){
+      setMode(rm)
     }
-    else{
-      alert("Sorry, Zero limit reached")
+    else if(e.target.innerText==='Blue'){
+      setMode(bm)
     }
-  }
-  const mode=()=>{
-    if(theme.backgroundColor == 'white'){
-      setTheme(dm)
-      setMessage("Dark Mode Enabled")
+    else if(e.target.innerText==='Green'){
+      setMode(gm)
     }
-    else{
-      setTheme(lm)  
-      setMessage("Light Mode Enabled")
+    else if(e.target.innerText==='White'){
+      setMode(wm)
     }
   }
   return (
-   <>
-   <div className="main" style={theme}>
-    <h1>{message}</h1>
-  <div className="box d-flex mx-5 mt-5">
-      <button  onClick={inc} className='btn btn-success mx-2'>+ </button>
-    <h1>{num}</h1>
-    <button onClick={dec} className='btn btn-danger mx-2'>-</button>
-    <button onClick={mode}>THEME</button>
-  </div>
-   </div>
-   
-   </>
+    <div style={modem} className='d-flex flex-column justify-content-center align-items-center'>
+        <h1>App</h1>
+        <h2>Welcome To React</h2>
+        <div className='d-flex justify-content-center space-x-3'>
+        <button onClick={mode} className='btn btn-success'>Red</button>
+        <button onClick={mode} className='btn btn-primary'>Blue</button>
+        <button onClick={mode} className='btn btn-success'>Green</button>
+        <button onClick={mode} className='btn btn-light'>White</button>
+   </div> </div>
   )
 }
 
